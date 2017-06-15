@@ -51,39 +51,70 @@ function echoBla4(){
 }
 echoBla4();
 
-//func_num_args & func_get_args
+//func_num_args
 function countArgs(){
 	$argCount = func_num_args();
-	$getArg = func_get_args();
 	echo '<br> Argument count: '.$argCount;
-	echo '<br> get arguments: '. $getArg;
 }
 countArgs(0,1,2,3,4);
 
+//func_get_args
+function getArgs(){
+		
+	echo '<br> get arguments: '. func_get_args(3) .'<br>';
+}
+getArgs(0,1,2,3,4);
+
 //scalar type declarations inside function
-function add(int $a, int $b){
+function add($a = int, $b = int){
 	return $a + $b;
 }
 
-var_dump(add(3, 5));
-
+echo "scalar type declarations: <br> ";
+echo add(3, 5);
+echo '<br>';
 
 //return type declarations
+echo "return type declarations: <br> ";
 
+// function number() : int{
+    // $int = 88;
+    // return $int;
+// }
+
+echo '<br>';
 
 //passing by reference
+echo "Passing by reference: <br> ";
+
 function count1(&$count){
 	$count++;
 	echo $count;
 }
 $a = 3;
 count1($a);
-
+echo '<br>';
 //variadics
+function variadic($arg1, ...$rest){
+	//$arg1 = 'Hello';
+	
+	foreach ($rest as $value){
+		return $arg1.' '.$value;
+	}
+}
+
+echo 'variadic: ';
+echo variadic('Hello', 'world', 'moon');
 
 
 //argument unpacking
+echo "<br>";
+function fruits($first, $second, $third){   
+    return $first . ' ' . $second . ' ' . $third;
+}
+$types = ['Apple', 'Pear', 'Kiwi'];
 
+echo fruits(...$types);
 
 
 
