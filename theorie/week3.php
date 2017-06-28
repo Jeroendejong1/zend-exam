@@ -120,12 +120,66 @@ array("item3", "item4"),
 
 //substr_replacecho '<br>';
 echo '<br>';
-echo substr_replace("hello world", "moon", 2);
+echo substr_replace("hello world", "moon", 2); //replaces 'lo world' with 'moon'
 echo '<br>';
-echo substr_replace("hello world", "moon", 6);
+echo substr_replace("hello world", "moon", 6); //replaces world with moon
 
 //substring extracting
+echo '<br>';
+$string = 'abcdefg';
+echo substr($string, '0', '3'); //echoes first 3 items
+
+//formatting strings
+echo "<br>";
+echo number_format("100.698");
 
 
+
+// Set locale
+setlocale(LC_ALL, 'nld_nld');
+
+echo '<br>';
+echo strftime("%A %d %B %Y", mktime(0, 0, 0, 12, 22, 1978));
+
+// echo "<br>";
+// echo money_format('%.2n', "345.22");
+
+echo "<br>";
+echo number_format("234234.34234");
+
+
+//printf
+$number = 123.456;
+echo "<br>";
+printf("%b", $number);
+echo "<br>";
+printf("%d", $number);
+echo "<br>";
+printf("%e", $number);
+echo "<br>";
+printf("%x", $number);
+echo "<br>";
+
+//sprintf
+$number = 7;
+$str = "earth";
+
+//$number is assigned to %u (unsigned decimal), $str to %s (string), 
+$txt = sprintf("There are %u billion people on %s.",$number,$str);
+echo $txt;
+
+//fprintf
+$number = 7;
+$str = "earth";
+$file = fopen('test.txt','w');
+
+//$number is assigned to %u (unsigned decimal), $str to %s (string), 
+echo fprintf($file,"There are %u billion people on %s.",$number,$str);
+
+//sscanf
+$str = "country:Netherlands capital city:Amsterdam";
+sscanf($str,"country:%s capital city:%s",$country,$capital);
+
+var_dump($country,$capital);
 
 ?>
