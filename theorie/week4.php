@@ -216,117 +216,248 @@ $array33 = array(1,2,3);
 print_r(array_count_values($array33));
 
 //array_fill
+echo '<br>';
 
+$array34 = array_fill(3,2,"bla");
+print_r($array34);
 
 //array_filter
+echo '<br>';
+function odd($var){
+    // returns whether the input integer is odd
+    return($var & 1);
+}
 
+function even($var){
+    // returns whether the input integer is even
+    return(!($var & 1));
+}
+
+$array35 = range (1,10);
+$array36 = range(1,10);
+
+echo "Odd :\n";
+print_r(array_filter($array35, "odd"));
+
+echo '<br>';
+
+echo "Even:\n";
+print_r(array_filter($array36, "even"));
 
 //array_flip
-
+$array37 = array('red','blue','yellow','green');
+//exchanges all keys with their values
+$array37 = array_flip($array37);
+print_r($array37);
 
 //array_intersect_assoc
+echo '<br>';
 
+$array38 = array('Amsterdam','Rotterdam','Utrecht');
+$array39 = array('Amsterdam','Rotterdam','Den Haag');
+$result = array_intersect_assoc($array38,$array39);
+print_r($result);
 
 //array_intersect_key
+echo '<br>';
 
+$array38 = array('a'=>'Amsterdam','b'=>'Rotterdam','c'=>'Utrecht');
+$array39 = array('a'=>'Amsterdam','b'=>'Rotterdam','d'=>'Den Haag');
+$result = array_intersect_key($array38,$array39);
+print_r($result);
 
 //array_intersect_uassoc
-
+echo '<br>';
+function myfunction2($array40,$array41){
+if ($array40===$array41){
+  return "";
+  }
+  return ($array40>$array41)?1:-1;
+}
+$array40 = array('a'=>'Amsterdam','b'=>'Den Haag','c'=>'Rotterdam','d'=>'Utrecht');
+$array41 = array('a'=>'Amsterdam','b'=>'Rotterdam','c'=>'Den Haag','e'=>'Utrecht');
+$result = array_intersect_uassoc($array40,$array41,'myfunction2');
+print_r($result);
 
 //array_intersect_ukey
-
+$array40 = array('a'=>'Amsterdam','b'=>'Den Haag','c'=>'Rotterdam','d'=>'Utrecht');
+$array41 = array('a'=>'Amsterdam','b'=>'Rotterdam','c'=>'Den Haag','e'=>'Utrecht');
+$result = array_intersect_ukey($array40,$array41,'myfunction2');
+print_r($result);
 
 //array_intersect
-
+$array42 = array('Amsterdam','Rotterdam','Utrecht');
+$array43 = array('Amsterdam','Rotterdam','Den Haag');
+$result=array_intersect($array42, $array43);
+print_r($result);
 
 //array_key_exists
+if(array_key_exists(1,$array43))echo "key exists";
+else echo "key not found";
 
+//array_keys
+echo "<br>";
+print_r(array_keys($array43));
 
-//array_keys, array_map
+//array_map
+echo "<br>";
 
+function myfunction3($double){
+	return($double*2);
+}
+
+$array44 = range(1,10);
+print_r(array_map("myfunction3",$array44));
 
 //array_merge_recursive
+echo "<br>";
+echo "<br>";
 
+print_r(array_merge_recursive($array42,$array43));
 
 //array_multisort
-
+echo "<br>";
+$a45 = array(2,6,3,5,8,1);
+array_multisort($a45);
+print_r($a45);
 
 //array_pad
-
+$a46=array("red","green");
+print_r(array_pad($a46,8,"blue"));
 
 //array_product
-
+echo '<br>';
+$a47=array(5,5,6);
+echo(array_product($a47)); //outputs 150
 
 //array_rand
-
+echo '<br>';
+$a48 = range(1,6);
+print_r(array_rand($a48, 1));
+print_r(array_rand($a48, 1));
 
 //array_reduce
-
+echo "<br>";
+function myfunction4($v1,$v2){
+	//
+	return $v1 . " 1 " . $v2;
+}
+$a49=array("Dog","Cat","Horse");
+print_r(array_reduce($a49,"myfunction4"));
 
 //array_replace
-
+echo "<br>";
+$a50=array("item1","item2");
+$a51=array("item3","item4");
+print_r(array_replace($a50,$a51));
 
 //array_replace_recursive
-
+echo "<br>";
+$a50=array("a"=>"item1","b"=>"item2");
+$a51=array("a"=>"item3","b"=>"item4");
+print_r(array_replace_recursive($a50,$a51));
 
 //array_reverse
-
+echo "<br>";
+print_r(array_reverse($a49));
 
 //array_search
+$a51=array("a"=>"red","b"=>"green","c"=>"blue");
+echo array_search("blue",$a51);
+echo array_search("orange",$a51);
 
+$a52=array("red","green","blue");
+echo array_search("red",$a51);
 
 //array_splice
-
+echo '<br>';
+$a53=array("a"=>"Amsterdam","b"=>"Rotterdam","c"=>"Den Haag");
+//replace Amsterdam with Utrecht, and Rotterdam  with Groningen
+$a54=array("a"=>"Utrecht","b"=>"Groningen");
+array_splice($a53,0,2,$a54);
+print_r($a53);
 
 //array_sum
-
+$a55 = array(4,5,6);
+echo array_sum($a55);//outputs 15
 
 //array_udiff_assoc
+echo '<br>';
+function myfunction5($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
 
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("a"=>"red","b"=>"blue","c"=>"green");
 
-//array_udiff_uassoc
-
-
-//array_udiff
-
+$result=array_udiff_assoc($a1,$a2,"myfunction5");
+print_r($result);
 
 //array_uintersect_assoc
+echo '<br>';
+function myfunction6($a,$b)
+{
+if ($a===$b)
+  {
+  return 0;
+  }
+  return ($a>$b)?1:-1;
+}
 
+$a1=array("a"=>"red","b"=>"green","c"=>"blue");
+$a2=array("a"=>"red","b"=>"blue","c"=>"green");
 
-//array_uintersect_uassoc
-
-
-//array_uintersect
+$result=array_uintersect_assoc($a1,$a2,"myfunction6");
+print_r($result);
 
 
 //array_unique
-
+$a56=array("a"=>"red","b"=>"green","c"=>"green");
+print_r(array_unique($a56));
 
 //array_walk
-
+function myfunction7($value,$key)
+{
+echo "The key $key has the value $value<br>";
+}
+$a=array("a"=>"Amsterdam","b"=>"Rotterdam","c"=>"Utrecht");
+array_walk($a,"myfunction7");
 
 //compact
+$var1 = 'bla';
+$var2 = 'blabla';
+$var3 = 'blablabla';
 
+$result = compact("var1", "var2", "var3");
+echo "<br>"; 
+print_r($result);
 
 //current
+echo "<br>";
 
+echo current($result);
 
 //each
+echo "<br>";
 
+print_r (each($result));
+echo "<br>";
+echo current($result);
 
 //end
-
+echo "<br>";
+echo end($result);
 
 //extract
-
-
-//next
-
-
-//pos
-
-
-//prev
-
+echo "<br>";
+$a = "Original";
+$my_array = array("a" => "Cat","b" => "Dog", "c" => "Horse");
+extract($my_array);
+echo "\$a = $a; \$b = $b; \$c = $c";
 
 ?>
