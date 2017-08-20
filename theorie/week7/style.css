@@ -1,0 +1,30 @@
+html{
+	font-family: Sans-serif;
+}
+
+#table_container{
+	display: flex;
+}
+
+.table{
+	margin: 5px;
+}
+
+table{
+	border: 2px solid black;
+	border-collapse: collapse;
+	font-size: 13px;
+	background-color: white;
+}
+
+th{
+	border: 2px solid black;
+	font-size: 16px;
+	text-align: left;
+	padding: 4px;
+}
+
+td{
+	border: 1px solid black;
+	padding: 4px;
+}
